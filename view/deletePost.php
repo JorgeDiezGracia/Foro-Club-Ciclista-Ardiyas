@@ -1,6 +1,6 @@
 <?php
 include("header.php");
-include_once '../controller/threadsController.php';
+include_once '../controller/postController.php';
 ?>
 
 <style>
@@ -84,13 +84,13 @@ include_once '../controller/threadsController.php';
 
 <?php
 if (isset($_SESSION["user"])) {
-    if (isset($_GET["threadDelete"]) && $_GET["threadDelete"] == "correct") {
+    if (isset($_GET["postDelete"]) && $_GET["postDelete"] == "correct") {
         ?>
         <div class="container text-center">
             <div class="alert alert-success" role="alert">
-                ✅ Tema eliminado satisfactoriamente.
+                ✅ Post deleted successfully.
             </div>
-            <p>Redirigiendo en <span id="contador">5</span> segundos...</p>
+            <p>Redirecting in <span id="contador">5</span> seconds...</p>
         </div>
 
         <script>
@@ -103,7 +103,7 @@ if (isset($_SESSION["user"])) {
                     contadorElemento.textContent = segundos;
                     setTimeout(redireccionar, 1000);
                 } else {
-                    window.location.href = "listThreads.php?topicID=<?php echo urlencode($_GET["topicID"]); ?>";
+                    window.location.href = "viewPost.php?threadID=<?php echo urlencode($_GET["threadID"]); ?>";
                 }
             }
             redireccionar();
@@ -112,13 +112,13 @@ if (isset($_SESSION["user"])) {
     } else {
         ?>
         <div class="container">
-            <h1>🗑 Confirmar borrado</h1>
+            <h1>🗑 Eliminado correctamente</h1>
             <p>¿Estás seguro de eliminar el comentario?</p>
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-                <input type="hidden" name="topicID" value="<?php echo htmlspecialchars($_GET["topicID"]); ?>">
                 <input type="hidden" name="threadID" value="<?php echo htmlspecialchars($_GET["threadID"]); ?>">
-                <button type="submit" name="deleteThread" class="btn btn-danger me-2">Confirmar</button>
-                <a href="listThreads.php?topicID=<?php echo urlencode($_GET["topicID"]); ?>" class="btn btn-secondary">Cancelar</a>
+                <input type="hidden" name="postID" value="<?php echo htmlspecialchars($_GET["postID"]); ?>">
+                <button type="submit" name="deletePost" class="btn btn-danger me-2">Confirmar</button>
+                <a href="viewPost.php?threadID=<?php echo urlencode($_GET["threadID"]); ?>" class="btn btn-secondary">Cancelar</a>
             </form>
         </div>
         <?php
@@ -127,7 +127,7 @@ if (isset($_SESSION["user"])) {
     ?>
     <div class="container text-center">
         <div class="alert alert-warning" role="alert">
-            ⚠️ Debes estar logueado.
+            ⚠️ Debes de estar logueado.
         </div>
         <a href="login.php" class="btn btn-primary">Login</a>
     </div>

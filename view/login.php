@@ -126,7 +126,7 @@ require_once("../controller/userController.php");
                 <button type="submit" name="login" class="btn btn-success w-100">🔐 Login</button>
             </form>
             <div class="mt-3 text-center">
-                <a href="registerUser.php">📝 New user register</a>
+                <a href="registerUser.php">📝 Nuevo usuario registrado</a>
             </div>
         </div>
     </div>

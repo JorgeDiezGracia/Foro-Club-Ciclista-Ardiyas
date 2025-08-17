@@ -1,6 +1,6 @@
 <?php
 include("header.php");
-require_once ("../controller/threadsController.php");
+require_once("../controller/postController.php");
 ?>
 
 <style>
@@ -73,7 +73,7 @@ require_once ("../controller/threadsController.php");
 </style>
 
 <div class="container">
-    <?php if (isset($_GET["threadRegister"]) && $_GET["threadRegister"] == "correct"): ?>
+    <?php if (isset($_GET["postRegister"]) && $_GET["postRegister"] == "correct"): ?>
         <div class="alert alert-success text-center" role="alert">
             <h4 class="alert-heading">✅ Registro correcto</h4>
             <p>Redirigiendo en <span id="contador">5</span> segundos...</p>
@@ -89,53 +89,46 @@ require_once ("../controller/threadsController.php");
                     contadorElemento.textContent = segundos;
                     setTimeout(redireccionar, 1000);
                 } else {
-                    window.location.href = "listThreads.php?topicID=<?php echo htmlspecialchars($_GET["topicID"]); ?>";
+                    window.location.href = "viewPost.php?threadID=<?php echo htmlspecialchars($_GET["threadID"]); ?>";
                 }
             }
             redireccionar();
         </script>
 
-    <?php elseif (isset($_GET["topicID"])): ?>
+    <?php elseif(isset($_GET["threadID"])): ?>
     <?php if(isset($_SESSION["user"])): ?>
     <?php if(isset($_GET["edit"])): ?>
-        <h2 class="text-center">✏️ Editar comentario</h2>
+        <h2 class="text-center">✏️ Edit Post</h2>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" novalidate>
                     <div class="mb-3">
-                        <label for="name" class="form-label">* Name:</label>
-                        <input id="name" class="form-control" type="text" name="name" value="<?php echo htmlspecialchars($_GET["name"]); ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">* Message:</label>
+                        <label for="message" class="form-label">* Mensaje:</label>
                         <textarea id="message" class="form-control" name="message" rows="4" required><?php echo htmlspecialchars($_GET["message"]); ?></textarea>
                     </div>
-                    <input type="hidden" name="topicID" value="<?php echo htmlspecialchars($_GET["topicID"]); ?>">
                     <input type="hidden" name="threadID" value="<?php echo htmlspecialchars($_GET["threadID"]); ?>">
+                    <input type="hidden" name="postID" value="<?php echo htmlspecialchars($_GET["postID"]); ?>">
                     <div class="d-grid">
-                        <button type="submit" name="editThread" class="btn btn-success btn-lg">✅ Edit</button>
+                        <button type="submit" name="editPost" class="btn btn-success btn-lg">✅ Editar</button>
                     </div>
                 </form>
             </div>
         </div>
-
     <?php else: ?>
         <h2 class="text-center">📝 Registrar comentario</h2>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" novalidate>
                     <div class="mb-3">
-                        <label for="name" class="form-label">* Name:</label>
-                        <input id="name" class="form-control" type="text" name="name" required>
-                    </div>
-                    <div class="mb-3">
                         <label for="message" class="form-label">* Message:</label>
                         <textarea id="message" class="form-control" name="message" rows="4" required></textarea>
                     </div>
-                    <input type="hidden" name="topicID" value="<?php echo htmlspecialchars($_GET["topicID"]); ?>">
+
+                    <input type="hidden" name="threadID" value="<?php echo htmlspecialchars($_GET["threadID"]); ?>">
                     <input type="hidden" name="userID" value="<?php echo htmlspecialchars($_SESSION["userID"]); ?>">
+
                     <div class="d-grid">
-                        <button type="submit" name="registerThread" class="btn btn-success btn-lg">✅ Registrar</button>
+                        <button type="submit" name="registerPost" class="btn btn-success btn-lg">✅ Registrar</button>
                     </div>
                 </form>
             </div>

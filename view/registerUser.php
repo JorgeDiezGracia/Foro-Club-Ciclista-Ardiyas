@@ -75,7 +75,7 @@ require_once("../controller/userController.php");
         </script>
 
     <?php else: ?>
-        <h2 class="text-center mb-4">📝 User Register</h2>
+        <h2 class="text-center mb-4">📝 Usuario registrado</h2>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" novalidate>
@@ -95,7 +95,7 @@ require_once("../controller/userController.php");
                     </div>
 
                     <div class="mb-3">
-                        <label for="password2" class="form-label">* Repeat password:</label>
+                        <label for="password2" class="form-label">* Repite password:</label>
                         <input id="password2" class="form-control" type="password" name="password2" required>
                     </div>
 

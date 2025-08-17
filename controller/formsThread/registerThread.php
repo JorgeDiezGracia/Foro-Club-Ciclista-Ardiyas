@@ -8,7 +8,7 @@ if (isset($_POST["registerThread"])) {
     foreach ($requiredFields as $field) {
         $value = trim($_POST[$field] ?? "");
         if ($value === "") {
-            $errors[] = "<p class='error-form'><b>$field</b> cannot be empty</p>";
+            $errors[] = "<p class='error-form'><b>$field</b> Este campo no puede estar vacío</p>";
             $validation = false;
         }
     }
