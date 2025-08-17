@@ -11,7 +11,7 @@ if (isset($_POST["editThread"])) {
             continue; // saltar validación para el botón submit
         }
         if ($value === "") {
-            $message[] = '<p class="error-form"> <b>' . htmlspecialchars($key) . '</b> can not be empty</p>';
+            $message[] = '<p class="error-form"> <b>' . htmlspecialchars($key) . '</b> Este campo no puede estar vacío</p>';
             $validation = false;
         }
     }

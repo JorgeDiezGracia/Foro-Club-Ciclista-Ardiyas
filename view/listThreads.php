@@ -151,7 +151,7 @@ include_once '../controller/threadsController.php';
                 <div class="col">
                     <div class="card">
                         <div class="card-body text-center">
-                            <p class="card-text">NO THREADS HERE</p>
+                            <p class="card-text">SIN TEMAS</p>
                         </div>
                     </div>
                 </div>

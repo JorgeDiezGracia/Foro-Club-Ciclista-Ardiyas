@@ -103,19 +103,19 @@ require_once("../controller/postController.php");
             <div class="col-md-6">
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" novalidate>
                     <div class="mb-3">
-                        <label for="message" class="form-label">* Message:</label>
+                        <label for="message" class="form-label">* Mensaje:</label>
                         <textarea id="message" class="form-control" name="message" rows="4" required><?php echo htmlspecialchars($_GET["message"]); ?></textarea>
                     </div>
                     <input type="hidden" name="threadID" value="<?php echo htmlspecialchars($_GET["threadID"]); ?>">
                     <input type="hidden" name="postID" value="<?php echo htmlspecialchars($_GET["postID"]); ?>">
                     <div class="d-grid">
-                        <button type="submit" name="editPost" class="btn btn-success btn-lg">✅ Edit</button>
+                        <button type="submit" name="editPost" class="btn btn-success btn-lg">✅ Editar</button>
                     </div>
                 </form>
             </div>
         </div>
     <?php else: ?>
-        <h2 class="text-center">📝 Register Post</h2>
+        <h2 class="text-center">📝 Registrar comentario</h2>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" novalidate>
@@ -128,7 +128,7 @@ require_once("../controller/postController.php");
                     <input type="hidden" name="userID" value="<?php echo htmlspecialchars($_SESSION["userID"]); ?>">
 
                     <div class="d-grid">
-                        <button type="submit" name="registerPost" class="btn btn-success btn-lg">✅ Register</button>
+                        <button type="submit" name="registerPost" class="btn btn-success btn-lg">✅ Registrar</button>
                     </div>
                 </form>
             </div>
@@ -136,7 +136,7 @@ require_once("../controller/postController.php");
     <?php endif; ?>
     <?php else: ?>
         <div class="alert alert-warning text-center" role="alert">
-            ⚠️ <h4>You need to be logged in</h4>
+            ⚠️ <h4>Debes estar logueado</h4>
         </div>
     <?php endif; ?>
     <?php endif; ?>

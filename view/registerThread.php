@@ -98,7 +98,7 @@ require_once ("../controller/threadsController.php");
     <?php elseif (isset($_GET["topicID"])): ?>
     <?php if(isset($_SESSION["user"])): ?>
     <?php if(isset($_GET["edit"])): ?>
-        <h2 class="text-center">✏️ Edit Thread</h2>
+        <h2 class="text-center">✏️ Editar comentario</h2>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" novalidate>
@@ -120,7 +120,7 @@ require_once ("../controller/threadsController.php");
         </div>
 
     <?php else: ?>
-        <h2 class="text-center">📝 Register Thread</h2>
+        <h2 class="text-center">📝 Registrar comentario</h2>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" novalidate>
@@ -135,7 +135,7 @@ require_once ("../controller/threadsController.php");
                     <input type="hidden" name="topicID" value="<?php echo htmlspecialchars($_GET["topicID"]); ?>">
                     <input type="hidden" name="userID" value="<?php echo htmlspecialchars($_SESSION["userID"]); ?>">
                     <div class="d-grid">
-                        <button type="submit" name="registerThread" class="btn btn-success btn-lg">✅ Register</button>
+                        <button type="submit" name="registerThread" class="btn btn-success btn-lg">✅ Registrar</button>
                     </div>
                 </form>
             </div>
@@ -143,7 +143,7 @@ require_once ("../controller/threadsController.php");
     <?php endif; ?>
     <?php else: ?>
         <div class="alert alert-warning text-center" role="alert">
-            ⚠️ <h4>You need to be logged in</h4>
+            ⚠️ <h4>Debes estar logueado</h4>
         </div>
     <?php endif; ?>
     <?php endif; ?>

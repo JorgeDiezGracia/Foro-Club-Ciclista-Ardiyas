@@ -88,9 +88,9 @@ if (isset($_SESSION["user"])) {
         ?>
         <div class="container text-center">
             <div class="alert alert-success" role="alert">
-                ✅ Thread deleted successfully.
+                ✅ Tema eliminado satisfactoriamente.
             </div>
-            <p>Redirecting in <span id="contador">5</span> seconds...</p>
+            <p>Redirigiendo en <span id="contador">5</span> segundos...</p>
         </div>
 
         <script>
@@ -112,13 +112,13 @@ if (isset($_SESSION["user"])) {
     } else {
         ?>
         <div class="container">
-            <h1>🗑 Delete Confirmation</h1>
-            <p>Are you sure you want to delete this thread?</p>
+            <h1>🗑 Confirmar borrado</h1>
+            <p>¿Estás seguro de eliminar el comentario?</p>
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                 <input type="hidden" name="topicID" value="<?php echo htmlspecialchars($_GET["topicID"]); ?>">
                 <input type="hidden" name="threadID" value="<?php echo htmlspecialchars($_GET["threadID"]); ?>">
-                <button type="submit" name="deleteThread" class="btn btn-danger me-2">Confirm</button>
-                <a href="listThreads.php?topicID=<?php echo urlencode($_GET["topicID"]); ?>" class="btn btn-secondary">Cancel</a>
+                <button type="submit" name="deleteThread" class="btn btn-danger me-2">Confirmar</button>
+                <a href="listThreads.php?topicID=<?php echo urlencode($_GET["topicID"]); ?>" class="btn btn-secondary">Cancelar</a>
             </form>
         </div>
         <?php
@@ -127,7 +127,7 @@ if (isset($_SESSION["user"])) {
     ?>
     <div class="container text-center">
         <div class="alert alert-warning" role="alert">
-            ⚠️ You need to be logged in to perform this action.
+            ⚠️ Debes estar logueado.
         </div>
         <a href="login.php" class="btn btn-primary">Login</a>
     </div>

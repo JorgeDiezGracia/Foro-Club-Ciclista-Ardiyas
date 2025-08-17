@@ -5,7 +5,7 @@ include_once '../controller/threadsController.php';
 
 <div class="container mt-5">
     <div class="text-center mb-4">
-        <h3>List of Threads</h3>
+        <h3>Lista de Temas</h3>
     </div>
 
     <div class="album py-4 bg-light">
@@ -20,15 +20,15 @@ include_once '../controller/threadsController.php';
                                     <p class="card-text text-truncate"><?php echo isset($tem['message']) ? htmlspecialchars($tem['message']) : ''; ?></p>
                                     <div class="mt-auto d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <a href="viewPost.php?threadID=<?php echo urlencode($tem['threadID']); ?>" class="btn btn-sm btn-outline-secondary">View</a>
+                                            <a href="viewPost.php?threadID=<?php echo urlencode($tem['threadID']); ?>" class="btn btn-sm btn-outline-secondary">Ver</a>
                                             <?php if (isset($_SESSION["user"], $_SESSION["role"])): ?>
                                                 <?php
                                                 $isAdmin = $_SESSION["role"] === "admin";
                                                 $isOwner = $_SESSION["role"] === "user" && $_SESSION["userID"] === $tem["userID"];
                                                 ?>
                                                 <?php if ($isAdmin || $isOwner): ?>
-                                                    <a href="deleteThread.php?topicID=<?php echo urlencode($tem["topicID"] ?? ''); ?>&threadID=<?php echo urlencode($tem["threadID"]); ?>" class="btn btn-sm btn-outline-danger">Delete</a>
-                                                    <a href="registerThread.php?topicID=<?php echo urlencode($tem["topicID"] ?? ''); ?>&edit=true&message=<?php echo urlencode($tem["message"] ?? ''); ?>&threadID=<?php echo urlencode($tem["threadID"]); ?>" class="btn btn-sm btn-outline-primary">Edit</a>
+                                                    <a href="deleteThread.php?topicID=<?php echo urlencode($tem["topicID"] ?? ''); ?>&threadID=<?php echo urlencode($tem["threadID"]); ?>" class="btn btn-sm btn-outline-danger">Eliminar</a>
+                                                    <a href="registerThread.php?topicID=<?php echo urlencode($tem["topicID"] ?? ''); ?>&edit=true&message=<?php echo urlencode($tem["message"] ?? ''); ?>&threadID=<?php echo urlencode($tem["threadID"]); ?>" class="btn btn-sm btn-outline-primary">Editar</a>
                                                 <?php endif; ?>
                                             <?php endif; ?>
                                         </div>
@@ -40,7 +40,7 @@ include_once '../controller/threadsController.php';
                 <?php else: ?>
                     <div class="col-12">
                         <div class="alert alert-info text-center" role="alert">
-                            No threads available.
+                            Sin temas.
                         </div>
                     </div>
                 <?php endif; ?>

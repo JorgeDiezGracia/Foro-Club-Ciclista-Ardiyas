@@ -112,13 +112,13 @@ if (isset($_SESSION["user"])) {
     } else {
         ?>
         <div class="container">
-            <h1>🗑 Delete Confirmation</h1>
-            <p>Are you sure you want to delete this post?</p>
+            <h1>🗑 Eliminado correctamente</h1>
+            <p>¿Estás seguro de eliminar el comentario?</p>
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                 <input type="hidden" name="threadID" value="<?php echo htmlspecialchars($_GET["threadID"]); ?>">
                 <input type="hidden" name="postID" value="<?php echo htmlspecialchars($_GET["postID"]); ?>">
-                <button type="submit" name="deletePost" class="btn btn-danger me-2">Confirm</button>
-                <a href="viewPost.php?threadID=<?php echo urlencode($_GET["threadID"]); ?>" class="btn btn-secondary">Cancel</a>
+                <button type="submit" name="deletePost" class="btn btn-danger me-2">Confirmar</button>
+                <a href="viewPost.php?threadID=<?php echo urlencode($_GET["threadID"]); ?>" class="btn btn-secondary">Cancelar</a>
             </form>
         </div>
         <?php
@@ -127,7 +127,7 @@ if (isset($_SESSION["user"])) {
     ?>
     <div class="container text-center">
         <div class="alert alert-warning" role="alert">
-            ⚠️ You need to be logged in to perform this action.
+            ⚠️ Debes de estar logueado.
         </div>
         <a href="login.php" class="btn btn-primary">Login</a>
     </div>

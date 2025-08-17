@@ -45,7 +45,7 @@ session_start();
 
                 <div class="d-flex align-items-center">
                     <?php if(isset($_SESSION["user"])) { ?>
-                        <a href="/NewForum-PHP/index.php" class="btn btn-turquesa me-3">Mi usuario</a>
+                        <a href="/foroCCArdiyas/index.php" class="btn btn-turquesa me-3">Mi usuario</a>
                         <form method="post" class="m-0">
                             <button type="submit" name="destroy" class="btn btn-turquesa">Logout</button>
                         </form>

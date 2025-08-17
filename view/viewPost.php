@@ -135,13 +135,13 @@ include_once '../controller/threadsController.php';
 
     <?php else: ?>
         <div class="alert alert-warning text-center" role="alert">
-            ⚠️ The thread does not exist.
+            ⚠️ El tema no existe.
         </div>
     <?php endif; ?>
 
     <?php if (isset($_SESSION["user"]) && $thread != null): ?>
         <div class="mt-4 text-end">
-            <a href="registerPost.php?threadID=<?php echo $thread->getThreadID(); ?>" class="btn btn-primary">➕ New Post</a>
+            <a href="registerPost.php?threadID=<?php echo $thread->getThreadID(); ?>" class="btn btn-primary">➕ Nuevo comentario</a>
         </div>
     <?php endif; ?>
 </div>

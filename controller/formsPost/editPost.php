@@ -6,7 +6,7 @@ if (isset($_POST["editPost"])) {
     // Solo validar el campo 'message'
     $messageContent = trim($_POST["message"] ?? "");
     if ($messageContent === "") {
-        $message[] = '<p class="error-form"><b>Message</b> can not be empty</p>';
+        $message[] = '<p class="error-form"><b>Message</b> Este campo no puede estar vacío</p>';
         $validation = false;
     }
 

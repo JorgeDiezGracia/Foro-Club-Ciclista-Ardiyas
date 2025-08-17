@@ -13,7 +13,7 @@ if(isset($_POST["register"])){
         $value = trim($value);
 
         if ($value == "") {
-            $message[] = '<p class="error-form"><b>' . $key . '</b> can not be null</p>';
+            $message[] = '<p class="error-form"><b>' . $key . '</b> Este campo no puede estar vacío</p>';
             $validation = false;
         }
 
@@ -23,7 +23,7 @@ if(isset($_POST["register"])){
 
         if ($key == "password2") {
             if ($passwordBuffer != $value) {
-                $message[] = '<p class="error-form">Passwords doesn\'t match</p>';
+                $message[] = '<p class="error-form">Password erróneo</p>';
                 $validation = false;
             }
         }
